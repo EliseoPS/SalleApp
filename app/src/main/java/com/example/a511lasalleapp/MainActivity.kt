@@ -103,6 +103,10 @@ class MainActivity : ComponentActivity() {
                             val newsId = it.arguments?.getInt("newsId") ?: 0
                             NewsDetailScreen(innerPadding = innerPadding, newsId = newsId)
                         }
+                        composable(route = Screens.CambiarContrasena.route)
+                        {
+                            CambiarContrasenaScreen(innerPadding = innerPadding)
+                        }
                     }
                 }
             }

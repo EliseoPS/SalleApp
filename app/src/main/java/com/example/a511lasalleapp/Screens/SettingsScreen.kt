@@ -3,6 +3,7 @@ package com.example.a511lasalleapp.Screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,7 +41,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController){
             .background(MaterialTheme.colorScheme.background),
 
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Box(
             modifier = Modifier.fillMaxWidth()
                 .clip(RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp))
@@ -49,7 +50,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController){
             contentAlignment = Alignment.Center,
 
 
-            ){
+            ) {
             Text(
                 text = stringResource(id = R.string.configuration),
                 style = MaterialTheme.typography.titleLarge,
@@ -57,116 +58,138 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController){
                 modifier = Modifier.padding(10.dp)
             )
         }
+        Spacer(
+            modifier = Modifier.height(35.dp)
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 19.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .height(380.dp) // Ajusta la altura según sea necesario
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize()
+                    .background(Color.White)
+                    .height(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Primer tercio (gris)
+                Box(
+                    modifier = Modifier
+                        .weight(1f) // 1/3 del espacio total
+                        .fillMaxWidth()
+                        .background(Color.Gray)
+                )
+
+                AsyncImage(
+                    model = alumno.image,
+                    contentDescription = "AlumnoImg",
+                    modifier = Modifier.size(120.dp)
+                        .offset(y = (-40).dp)
+                        .clip(CircleShape)
+                        .border(4.dp, Color.White, CircleShape)
+                    )
+
+                // Dos tercios inferiores (blanco)
+                Box(
+                    modifier = Modifier
+                        .weight(2f) // 2/3 del espacio total
+                        .fillMaxWidth()
+                        .background(Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(horizontal = 20.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ){
+                        Text(
+                            text = alumno.nombre,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontSize = 22.sp,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                        Spacer(modifier = Modifier.height(30.dp))
+                        Text(
+                            text = buildAnnotatedString {
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append("Fecha de Nacimiento: ") // Esta parte estará en negritas
+                                }
+                                append(alumno.fechaNacimiento) // Esta parte tendrá el estilo normal
+                            },
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                        Text(
+                            text = buildAnnotatedString {
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append("Correo: ") // Esta parte estará en negritas
+                                }
+                                append(alumno.correo) // Esta parte tendrá el estilo normal
+                            },
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                    }
+                }
+            }
+        }
 
         Spacer(
-            modifier = Modifier.height(20.dp)
+            modifier = Modifier.height(35.dp)
         )
 
-        Box(
+        Column(
             modifier = Modifier.fillMaxWidth()
-                .padding(horizontal = 14.dp)
-                .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
-                .background(Color.Gray)
-                .height(100.dp)
+                .padding(horizontal = 19.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ){
-
-
-        }
-        AsyncImage(
-            model = alumno.image,
-            contentDescription = "AlumnoImg",
-            modifier = Modifier.size(120.dp)
-                .offset(y = (-40).dp)
-                .clip(CircleShape)
-                .border(4.dp, Color.White, CircleShape)
-                .zIndex(1f),
-            contentScale = ContentScale.Crop
-        )
-        Box(
-            modifier = Modifier.fillMaxWidth()
-                .offset(y = (-120).dp)
-                .padding(horizontal = 14.dp)
-                .background(Color.White)
-                .height(100.dp)
-
-        ){
-
-        }
-        Box(
-            modifier = Modifier.fillMaxWidth()
-                .padding(horizontal = 14.dp)
-                .offset(y = (-120).dp)
-                .clip(RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp))
-                .background(Color.White)
-                .height(190.dp)
-
-        ){
-            Column(
+            Box(
                 modifier = Modifier.fillMaxWidth()
-                    .padding(horizontal = 20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Text(
-                    text = alumno.nombre,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontSize = 22.sp,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-                Spacer(modifier = Modifier.height(30.dp))
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("Fecha de Nacimiento: ") // Esta parte estará en negritas
-                        }
-                        append(alumno.fechaNacimiento) // Esta parte tendrá el estilo normal
-                    },
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("Correo: ") // Esta parte estará en negritas
-                        }
-                        append(alumno.correo) // Esta parte tendrá el estilo normal
-                    },
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
-
-        }
-        Row(
-            modifier = Modifier.fillMaxWidth()
-                .offset(y = -(50).dp)
-                .padding(horizontal = 20.dp)
-                .background(Color.Green)
-                .height(100.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-
-        ){
-            Box(
-                modifier = Modifier.fillMaxHeight()
-                    .size(100.dp)
-                    .padding(10.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color.Red)
-            ){
+                    .background(MaterialTheme.colorScheme.primary)
+                    .height(50.dp)
+                    .clickable {
 
+                    },
+                contentAlignment = Alignment.Center
+            ){
+                Text(
+                    text = "Cambiar tema",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = White
+                )
             }
+            Spacer(
+                modifier = Modifier.height(10.dp)
+            )
             Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .padding(10.dp)
+                modifier = Modifier.fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color.Red)
+                    .background(MaterialTheme.colorScheme.primary)
+                    .height(50.dp)
+                    .clickable {
+                        navController.navigate("cambiarContrasena")
+                    },
+                contentAlignment = Alignment.Center
             ){
-
+                Text(
+                    text = "Cambiar Contraseña",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = White,
+                )
             }
+
         }
 
 
     }
+
+
+
+
+
 }
 
 @Preview(
