@@ -4,5 +4,7 @@
     <string name="news">Noticias</string>
     <string name="community">Comunidad</string>
     <string name="configuration">Configuración</string>
+    <string name="cambiarContra">Cambiar Contraseña</string>
+    <string name="cambiarTema">Cambiar Tema</string>
 
 </resources>

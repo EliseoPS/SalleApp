@@ -7,11 +7,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,15 +22,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.a511lasalleapp.R
 import com.example.a511lasalleapp.ui.theme.White
 import com.example.a511lasalleapp.ui.theme._511LaSalleAppTheme
-import com.example.a511lasalleapp.utils.Screens
-
-
 
 @Composable
-fun CambiarContrasenaScreen(innerPadding: PaddingValues, navController: NavController){
-    var text = ""
-
-
+fun CambiarTemaScreen(innerPadding: PaddingValues, navController: NavController){
     Column(
         modifier = Modifier.fillMaxSize()
             .padding(innerPadding)
@@ -51,7 +42,7 @@ fun CambiarContrasenaScreen(innerPadding: PaddingValues, navController: NavContr
 
             ) {
             Text(
-                text = stringResource(id = R.string.cambiarContra),
+                text = stringResource(id = R.string.cambiarTema),
                 style = MaterialTheme.typography.titleLarge,
                 color = White,
                 modifier = Modifier.padding(10.dp)
@@ -62,65 +53,68 @@ fun CambiarContrasenaScreen(innerPadding: PaddingValues, navController: NavContr
         )
 
         Text(
-            text = "Llene el siguiente formulario:",
+            text = "Elige un tema:",
             style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier.padding(horizontal = 16.dp)
 
-            )
-
-        Spacer(
-            modifier = Modifier.height(40.dp)
         )
 
-        Column(
-
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier.padding(horizontal = 16.dp)
-
+        Spacer(
+            modifier = Modifier.height(117.dp)
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth()
+                ,
+            horizontalArrangement = Arrangement.SpaceEvenly
         ){
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Box(
+                    modifier = Modifier.size(120.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.White)
+                        .border(2.dp,Color.DarkGray,RoundedCornerShape(16.dp)),
+                    contentAlignment = Alignment.Center
+                ){
+                    Icon(
+                        painter = painterResource(id = R.drawable.sol),
+                        contentDescription = "LightMode",
+                        tint = Color.Unspecified,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(10.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp)) // Espacio entre la Box y el texto
+                Text("Modo Claro")
+            }
 
-            OutlinedTextField(
-                value = "",
-                onValueChange = { newText -> text = newText },
-                label = { Text("Contraseña Actual") }, // Esto se ve cuando el campo está activo
-                // Placeholder
-                modifier = Modifier
-                    .fillMaxWidth()
-            )
-            OutlinedTextField(
-                value = "",
-                onValueChange = { newText -> text = newText },
-                label = { Text("Nueva contraseña") }, // Esto se ve cuando el campo está activo
-                // Placeholder
-                modifier = Modifier
-                    .fillMaxWidth()
-
-            )
-
-
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Box(
+                    modifier = Modifier.size(120.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.DarkGray)
+                        .border(2.dp,Color.White,RoundedCornerShape(16.dp)),
+                    contentAlignment = Alignment.Center
+                ){
+                    Icon(
+                        painter = painterResource(id = R.drawable.luna),
+                        contentDescription = "DarkMode",
+                        tint = Color.Unspecified,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(10.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp)) // Espacio entre la Box y el texto
+                Text("Modo Obscuro")
+            }
         }
         Spacer(
-            modifier = Modifier.height(50.dp)
+            modifier = Modifier.height(117.dp)
         )
-        //CAMBIAR
-        Box(
-            modifier = Modifier.width(300.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(MaterialTheme.colorScheme.primary)
-                .height(50.dp)
-                .padding(horizontal = 40.dp),
-            contentAlignment = Alignment.Center
-        ){
-            Text(
-                text = "Cambiar",
-                style = MaterialTheme.typography.bodyLarge,
-                color = White,
-            )
-        }
-        Spacer(
-            modifier = Modifier.height(50.dp)
-        )
-        //VOLVER
         Box(
             modifier = Modifier.width(300.dp)
                 .clip(RoundedCornerShape(16.dp))
@@ -146,8 +140,8 @@ fun CambiarContrasenaScreen(innerPadding: PaddingValues, navController: NavContr
     showSystemUi = true
 )
 @Composable
-fun CambiarContrasenaScreen(){
+fun CambiarTemaPreview(){
     _511LaSalleAppTheme {
-        CambiarContrasenaScreen(innerPadding = PaddingValues(0.dp), navController = rememberNavController())
+        CambiarTemaScreen(innerPadding = PaddingValues(0.dp), navController = rememberNavController())
     }
 }

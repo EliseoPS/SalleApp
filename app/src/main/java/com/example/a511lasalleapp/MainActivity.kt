@@ -105,7 +105,11 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = Screens.CambiarContrasena.route)
                         {
-                            CambiarContrasenaScreen(innerPadding = innerPadding)
+                            CambiarContrasenaScreen(innerPadding = innerPadding, navController = navController)
+                        }
+                        composable(route = Screens.CambiarTema.route)
+                        {
+                            CambiarTemaScreen(innerPadding = innerPadding, navController = navController)
                         }
                     }
                 }

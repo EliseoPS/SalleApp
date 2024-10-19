@@ -151,7 +151,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController){
                     .background(MaterialTheme.colorScheme.primary)
                     .height(50.dp)
                     .clickable {
-
+                        navController.navigate("cambiarTema")
                     },
                 contentAlignment = Alignment.Center
             ){
