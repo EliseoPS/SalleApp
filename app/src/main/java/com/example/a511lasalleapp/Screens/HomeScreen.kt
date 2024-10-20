@@ -111,7 +111,7 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController){
             ){
                 Widget(icon = Icons.Default.DateRange, title = "Sin eventos")
                 Widget(icon = Task, title = "2 tareas")
-                Widget(icon = Cash, title = "pasos")
+                Widget(icon = Cash, title = "Pagos")
 
             }
 

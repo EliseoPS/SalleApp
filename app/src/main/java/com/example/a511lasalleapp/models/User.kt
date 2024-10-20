@@ -5,5 +5,9 @@ data class User(
     val nombre : String,
     val fechaNacimiento : String,
     val correo : String,
-    val image : String
+    val image : String,
+    val carrera: String,
+    val semestreActual: Int,
+    val promedioAcumulado: Double,
+    val materias: List<Materia>
 )

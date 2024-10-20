@@ -6,5 +6,8 @@
     <string name="configuration">Configuración</string>
     <string name="cambiarContra">Cambiar Contraseña</string>
     <string name="cambiarTema">Cambiar Tema</string>
+    <string name="calificaciones">Calificaciones</string>
+    <string name="pagos">Pagos</string>
+    <string name="materia">Materia</string>
 
 </resources>
