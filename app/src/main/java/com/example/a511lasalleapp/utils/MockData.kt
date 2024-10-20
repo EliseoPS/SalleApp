@@ -1,9 +1,6 @@
 package com.example.a511lasalleapp.utils
 
-import com.example.a511lasalleapp.models.Community
-import com.example.a511lasalleapp.models.Materia
-import com.example.a511lasalleapp.models.News
-import com.example.a511lasalleapp.models.User
+import com.example.a511lasalleapp.models.*
 
 val newsList = listOf(
     News(    id = 1,    title = "Evento de Construcción de la Paz",    description = "La Salle Bajío realiza un foro para fomentar la construcción de la paz en la comunidad estudiantil.",    image =  "https://www.lasallebajio.edu.mx/noticias/images/4701_1.jpg"),
@@ -15,7 +12,23 @@ val communities = listOf(
     Community(1,"https://www.lasallebajio.edu.mx/comunidad/images/tile_documentos_inspiradores.jpg"),
     Community(2,"https://www.lasallebajio.edu.mx/comunidad/images/tile_boletin.jpg"),
     Community(3,"https://www.lasallebajio.edu.mx/comunidad/images/tile_cat_souv_22.jpg  "),
-    Community(4,"https://www.lasallebajio.edu.mx/comunidad/images/tile_tramites.jpg"),    Community(5,"https://www.lasallebajio.edu.mx/comunidad/images/tile_blog.jpg"),)
+    Community(4,"https://www.lasallebajio.edu.mx/comunidad/images/tile_tramites.jpg"),
+    Community(5,"https://www.lasallebajio.edu.mx/comunidad/images/tile_blog.jpg"),)
+
+val meses = listOf(
+    Mes(id = 1, nombreMes = "Enero", estadoPagado = true),
+    Mes(id = 2, nombreMes = "Febrero", estadoPagado = true),
+    Mes(id = 3, nombreMes = "Marzo", estadoPagado = true),
+    Mes(id = 4, nombreMes = "Abril", estadoPagado = true),
+    Mes(id = 5, nombreMes = "Mayo", estadoPagado = true),
+    Mes(id = 6, nombreMes = "Junio", estadoPagado = true),
+    Mes(id = 7, nombreMes = "Julio", estadoPagado = true),
+    Mes(id = 8, nombreMes = "Agosto", estadoPagado = true),
+    Mes(id = 9, nombreMes = "Septiembre", estadoPagado = false),
+    Mes(id = 10, nombreMes = "Octubre", estadoPagado = false),
+    Mes(id = 11, nombreMes = "Noviembre", estadoPagado = false),
+    Mes(id = 12, nombreMes = "Diciembre", estadoPagado = false)
+)
 
 val alumno =
     User(

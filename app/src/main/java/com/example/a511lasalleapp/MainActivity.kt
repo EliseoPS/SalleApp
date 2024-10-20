@@ -124,6 +124,10 @@ class MainActivity : ComponentActivity() {
                         {
                             CambiarTemaScreen(innerPadding = innerPadding, navController = navController)
                         }
+                        composable(route = Screens.PagosScreen.route)
+                        {
+                            PagosScreen(innerPadding = innerPadding, navController = navController)
+                        }
 
                     }
                 }

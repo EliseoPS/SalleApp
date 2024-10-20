@@ -1,6 +1,7 @@
 package com.example.a511lasalleapp.ui.theme.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
@@ -17,6 +18,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.a511lasalleapp.ui.theme._511LaSalleAppTheme
 
 @Composable
@@ -25,7 +28,8 @@ fun Widget(icon:ImageVector,title:String){
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))
             .size(90.dp)
-            .background(MaterialTheme.colorScheme.background),
+            .background(MaterialTheme.colorScheme.background)
+            ,
         contentAlignment = Alignment.Center
     ){
         Column(
